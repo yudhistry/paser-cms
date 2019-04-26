@@ -21,10 +21,10 @@
             $no = 1;
             foreach($checked as $id)
             {
-              //$dec_id = str_replace(array('-', '_', '~'), array('+', '/', '='), $id);
-              //$dec_id = $this->encryption->decrypt($dec_id);
+              $dec_id = str_replace(array('-', '_', '~'), array('+', '/', '='), $id);
+              $dec_id = $this->encryption->decrypt($dec_id);
               echo form_hidden('ID[]',$id);
-              $row = $this->M_categories->get_by_id($id);
+              $row = $this->M_categories->get_by_id($dec_id);
               echo '<tr>';
               echo '<td class="text-right">'.$no++.'.</td>';
               echo '<td>'.$row->cat_name.'</td>';
